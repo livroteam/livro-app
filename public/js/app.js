@@ -1,1 +1,1 @@
-angular.module('livroApp', ['ngRoute', 'appRoutes', 'MainCtrl', 'NerdCtrl', 'NerdService', 'GeekCtrl', 'GeekService']);
+angular.module('livroApp', ['ngRoute', 'appRoutes', 'MainCtrl', 'BookCtrl', 'BookService', 'GeekCtrl', 'GeekService']);

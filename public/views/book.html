@@ -1,0 +1,40 @@
+<h3>Find books</h3>
+<form>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+            <input type="text" class="form-control" placeholder="Find books" ng-model="bookFilter">
+        </div>
+    </div>
+</form>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Title</td>
+            <td>Owner</td>
+            <td>Location</td>
+            <td>Contact</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="x in books | filter:bookFilter">
+            <td></td>
+            <td><a href="/api/book={{x.bookISBN}}">{{x.bookTitle}}</a></td>
+            <td>{{x.bookOwner}}</td>
+            <td>{{x.ownerLocation}}</td>
+            <td><a href="{{x.ownerEmail}}">Contact owner</a></td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Add new book</h3>
+<form ng-submit="addBook()">
+    <div class="form-group">
+        <input type="text" placeholder="Book Title" class="form-control" ng-model="bookTitle"></input>
+    </div>
+    <div class="form-group">
+        <input type="text" placeholder="ISBN Serial Number" class="form-control" ng-model="bookISBN"></input>
+    </div>
+    <button type="submit" class="btn btn-primary">Confirm</button>
+</form>
