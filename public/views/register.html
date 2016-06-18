@@ -1,0 +1,19 @@
+<h3>Register New User</h3>
+<form ng-submit="regMember()">
+  <div class="form-group">
+    <input type="text" placeholder="First name" class="form-control" ng-model="firstName"></input>
+  </div>
+  <div class="form-group">
+    <input type="text" placeholder="Last name" class="form-control" ng-model="lastName"></input>
+  </div>
+  <div class="form-group">
+    <input type="text" placeholder="Email address" class="form-control" ng-model="emailAddress"></input>
+  </div>
+  <div class="form-group">
+    <input type="password" placeholder="Password" class="form-control" ng-model="password1"></input>
+  </div>
+  <div class="form-group">
+    <input type="password" placeholder="Retype Password" class="form-control" ng-model="password2"></input>
+  </div>
+  <button type="submit" class="btn btn-primary">Register</button>
+</form>

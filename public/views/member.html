@@ -1,0 +1,29 @@
+<h3>Member List</h3>
+<form>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+            <input type="text" class="form-control" placeholder="Find person" ng-model="filterMember">
+        </div>
+    </div>
+</form>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Name</td>
+            <td>Location</td>
+            <td>Profile</td>
+            <td>Contact</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="x in member | filter:filterAhli">
+            <td></td>
+            <td>{{x.memberName}}</td>
+            <td>{{x.memberLocation}}</td>
+            <td><a href="/api/member={{x.memberID}}">View Profile</a></td>
+            <td><a href="/api/message={{x.memberID}}">Send message</a></td>
+        </tr>
+    </tbody>
+</table>
