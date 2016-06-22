@@ -20,7 +20,7 @@
     <tbody>
         <tr ng-repeat="x in books | filter:bookFilter">
             <td></td>
-            <td><a href="/api/book={{x.bookISBN}}">{{x.bookTitle}}</a></td>
+            <td><a href="/api/book={{x.isbn}}">{{x.title}}</a></td>
             <td>{{x.bookOwner}}</td>
             <td>{{x.ownerLocation}}</td>
             <td><a href="{{x.ownerEmail}}">Contact owner</a></td>

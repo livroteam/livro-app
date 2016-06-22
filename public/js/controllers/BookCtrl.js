@@ -1,4 +1,4 @@
-angular.module('BookCtrl', []).controller('BookController', function($scope) {
+angular.module('BookCtrl', ['BookService']).controller('BookController', function($scope, BookFactory) {
 
   $scope.books = [
     {

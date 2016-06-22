@@ -1,17 +1,22 @@
 // modules =================================================
-var express        = require('express');
-var app            = express();
-var mongoose       = require('mongoose');
-var bodyParser     = require('body-parser');
+var express = require('express');
+var app = express();
+var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
 // configuration ===========================================
-	
+
 // config files
 var db = require('./config/db');
 
 var port = process.env.PORT || 8080; // set our port
-// mongoose.connect(db.url); // connect to our mongoDB database (commented out after you enter in your own credentials)
+var dbconnect = mongoose.connect(db.url, function() {
+  mongoose.connection.once('open', function(err) {
+    if(err) return console.log('Error connecting to db: ' + err);
+    console.log('Database connected');
+  });
+}); // connect to our mongoDB database (commented out after you enter in your own credentials)
 
 // get all data/stuff of the body (POST) parameters
 app.use(bodyParser.json()); // parse application/json 
@@ -25,6 +30,6 @@ app.use(express.static(__dirname + '/public')); // set the static files location
 require('./app/routes')(app); // pass our application into our routes
 
 // start app ===============================================
-app.listen(port);	
-console.log('Magic happens on port ' + port); 			// shoutout to the user
-exports = module.exports = app; 						// expose app
+app.listen(port);
+console.log('Magic happens on port ' + port); // shoutout to the user
+exports = module.exports = app; // expose app
